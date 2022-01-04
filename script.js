@@ -1,0 +1,1 @@
+setInterval(() => document.getElementById("datum").innerHTML = new Date().toLocaleString("cs-CZ", { timeZone: "CET" }), 999);
