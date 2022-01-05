@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="../script.js"></script>
+    <title>CS:GO - Kozohorský, Drda</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">
+        <h1>www.cykablyat.cz</h1>
+      </a>
+
+      <ul>
+        <li>
+          <a href="/">Hlavní</a>
+        </li>
+        <li>
+          <p id="datum">DATUM ATD</p>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <form action="/log" method="post">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" />
+        <label for="password">Heslo: </label>
+        <input type="password" name="password" id="password" />
+        <button type="submit">Přihlásit</button>
+      </form>
+      <p>
+        Nemáš účet? <span><a href="/registrace">Registrovat</a></span>
+      </p>
+    </section>
+  </body>
+</html>

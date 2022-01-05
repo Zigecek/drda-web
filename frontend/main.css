@@ -1,0 +1,72 @@
+#chat {
+  display: block;
+  overflow-y: scroll;
+  width: 80vw;
+  height: 30rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+#sendForm {
+  width: 20em;
+}
+
+.message {
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.msg-other {
+  text-align: left;
+}
+
+.msg-me {
+  text-align: right;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  width: 5rem;
+  height: 1.7rem;
+  cursor: pointer;
+  outline: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: auto;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+.button:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.input {
+  width: 12rem;
+  height: 1.7rem;
+  padding: auto;
+  font-size: 0.9rem;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}

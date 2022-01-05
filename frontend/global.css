@@ -1,0 +1,25 @@
+nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+nav ul {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+nav ul li {
+  vertical-align: middle;
+  text-align: center;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
