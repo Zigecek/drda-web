@@ -1,2 +1,0 @@
-# drda-web
-Drda smrdí
