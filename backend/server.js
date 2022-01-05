@@ -124,7 +124,7 @@ app.post("/reg", async (req, res) => {
     });
 
     // return new user
-    return res.status(201).json(user);
+    return res.redirect('/');
   } catch (err) {
     console.log(err);
   }
@@ -158,7 +158,7 @@ app.post("/log", async (req, res) => {
         sameSite: "none",
       });
 
-      return res.status(200).json(user);
+      return res.redirect('/');
     }
     res.status(400).send("Invalid Credentials");
   } catch (err) {
