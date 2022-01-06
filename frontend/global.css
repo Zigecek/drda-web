@@ -38,40 +38,19 @@ body {
 .flex {
   display: flex;
 }
-.sectLeft {
-  width: 30vw;
-}
 
-.sectLeft > h1 {
-  text-align: center;
-  padding-top: 1rem;
-  font-weight: 900;
-}
-
-.sectLeft > p {
-  text-align: center;
-}
-
-.sectRight {
-  width: 70vw;
-}
-
-/* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgb(116, 116, 116);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(73, 73, 73);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(63, 63, 63);
 }
