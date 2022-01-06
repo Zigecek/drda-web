@@ -6,77 +6,81 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
     <title>CS:GO - Kozohorský, Drda</title>
   </head>
+
   <body>
-    <nav>
-      <a href="/">
-        <h1>www.cykablyat.cz</h1>
-      </a>
+    <header>
+      <nav>
+        <a id="mainHeading" href="/">
+          <h1>www.cykablyat.cz</h1>
+        </a>
+        <ul>
+          <li>
+            <a href="/">Hlavní</a>
+          </li>
+          <li>
+            <p id="datum">DATUM ATD</p>
+          </li>
+          <li id="loginBtn">
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <ul>
-        <li>
-          <a href="/">Hlavní</a>
-        </li>
-        <li>
-          <p id="datum">DATUM ATD</p>
-        </li>
-        <li>
-          <a href="/prihlaseni">Login</a>
-        </li>
-      </ul>
-    </nav>
+    <section class="flex">
+      <section class="sectLeft">
+        <h1>O hře</h1>
+        <p>
+          Hra CS:GO je akční strategická střílečka, ve které musíte přemýšlet
+          nad ekomikou nepřítele,ale také i nad strategií nepřítele.V této hře
+          se hraje 5 na 5, ale poté jsou ty i různé módy, které do hry přidávají
+          i jiné možnosti hraní. Při hře 5 na 5 (kompetetivní/hodnocené) si
+          musíte dát záležet na výběru pozice, na které budete hrát. Ale také si
+          musíte najít ve vašem teamu "rovnováhu", která poté do vaší hry dá
+          více možností, jak ji hrát. Občas se ale může také stát, že narazíte
+          na nepříjemné spoluhráče, kteří vám hru jen a jen kazí, ať už je to
+          nedobrým herním stylem nebo úmyslným kažením hry. Zakladními
+          "parametry" hráce jsou poté takové (musíme brát ohled na nově příchozí
+          hráče, kteří se tyto "parametry" teprve učí) :
+        </p>
+        <ul>
+          <li>
+            Používání myši
+            <ol type="a">
+              <li>Flick myši (rychlé cuknutí zaměřovače)</li>
+              <li>Crosshair-placement (umístění zaměřovače)</li>
+              <li>Vzor střelby zbraní (vyrovnávání vybrací při střelbě)</li>
+            </ol>
+          </li>
+          <li>Ekonomika teamu (kdy nakupovat a kdy zase ne)</li>
+          <li>Morálka v teamu (při špatné morálce se hraje hůř)</li>
+          <li>Rychlý pohyb po určitých mapách (Movement)</li>
+        </ul>
+      </section>
+      <section class="sectRight">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/ztLkFD7LzIQ"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <img
+          src="https://cdn.akamai.steamstatic.com/apps/csgo/images/blog/riptide_blog_2.png"
+          alt="www.cykablyat.cz"
+        />
 
-    <section>
-      <h1>O hře</h1>
-      <p>
-        Hra CS:GO je akční strategická střílečka, ve které musíte přemýšlet nad
-        ekomikou nepřítele,ale také i nad strategií nepřítele.V této hře se
-        hraje 5 na 5, ale poté jsou ty i různé módy, které do hry přidávají i
-        jiné možnosti hraní. Při hře 5 na 5 (kompetetivní/hodnocené) si musíte
-        dát záležet na výběru pozice, na které budete hrát. Ale také si musíte
-        najít ve vašem teamu "rovnováhu", která poté do vaší hry dá více
-        možností, jak ji hrát. Občas se ale může také stát, že narazíte na
-        nepříjemné spoluhráče, kteří vám hru jen a jen kazí, ať už je to
-        nedobrým herním stylem nebo úmyslným kažením hry. Zakladními "parametry"
-        hráce jsou poté takové (musíme brát ohled na nově příchozí hráče, kteří
-        se tyto "parametry" teprve učí) :
-      </p>
-      <ul>
-        <li>
-          Používání myši
-          <ol type="a">
-            <li>Flick myši (rychlé cuknutí zaměřovače)</li>
-            <li>Crosshair-placement (umístění zaměřovače)</li>
-            <li>Vzor střelby zbraní (vyrovnávání vybrací při střelbě)</li>
-          </ol>
-        </li>
-        <li>Ekonomika teamu (kdy nakupovat a kdy zase ne)</li>
-        <li>Morálka v teamu (při špatné morálce se hraje hůř)</li>
-        <li>Rychlý pohyb po určitých mapách (Movement)</li>
-      </ul>
-    </section>
-
-    <section>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/ztLkFD7LzIQ"
-        frameborder="0"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-      <img
-        src="https://cdn.akamai.steamstatic.com/apps/csgo/images/blog/riptide_blog_2.png"
-        alt="www.cykablyat.cz"
-      />
-
-      <table></table>
+        <table></table>
+      </section>
     </section>
 
     <section class="center">
       <div id="chat" class="center"></div>
       <form name="sendForm" id="sendForm" class="center">
         <input class="input" type="text" name="content" id="zprava" disabled />
-        <button class="button" id="poslat" type="submit" disabled>Poslat</button>
+        <button class="button" id="poslat" type="submit" disabled>
+          Poslat
+        </button>
       </form>
     </section>
     <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>

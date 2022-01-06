@@ -78,6 +78,18 @@ io.on("connection", async (socket) => {
 
     io.sockets.emit("new", message);
   });
+
+  socket.on("getUsername", (token) => {
+    var decoded;
+    try {
+      decoded = jwt.verify(token, process.env.TOKEN_KEY);
+    } catch (error) {}
+
+    const user = await User.findOne({ email: decoded.email });
+    if (!user) return;
+
+    socket.emit("username", user.username);
+  });
 });
 
 app.post("/reg", async (req, res) => {
@@ -124,7 +136,7 @@ app.post("/reg", async (req, res) => {
     });
 
     // return new user
-    return res.redirect('/');
+    return res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -158,7 +170,7 @@ app.post("/log", async (req, res) => {
         sameSite: "none",
       });
 
-      return res.redirect('/');
+      return res.redirect("/");
     }
     res.status(400).send("Invalid Credentials");
   } catch (err) {

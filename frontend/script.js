@@ -1,10 +1,5 @@
 var socket = io.connect("https://cykablyat.cz");
 
-if (document.cookie) {
-  document.getElementById("zprava").removeAttribute("disabled");
-  document.getElementById("poslat").removeAttribute("disabled");
-}
-
 function createMsgEl(chat, msg) {
   chat.innerHTML =
     chat.innerHTML +
@@ -37,9 +32,21 @@ socket.on("connect", () => {
 
 setInterval(
   () =>
-    (document.getElementById("datum").innerHTML = new Date().toLocaleString(
+    (document.getElementById("datum").innerText = new Date().toLocaleString(
       "cs-CZ",
       { timeZone: "CET" }
     )),
   999
 );
+
+var el = document.getElementById("loginBtn");
+if (document.cookie) {
+  document.getElementById("zprava").removeAttribute("disabled");
+  document.getElementById("poslat").removeAttribute("disabled");
+  socket.on("username", (username) => {
+    el.innerHTML = `<p>${username} <span><a href="/odhlaseni">Odhlásit</a></span></p>`;
+  });
+  socket.emit("getUsername", document.cookie.slice(13));
+} else {
+  el.innerHTML = `<a  href="/prihlaseni">Přihlásit</a>`;
+}

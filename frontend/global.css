@@ -1,25 +1,77 @@
-nav {
-  position: relative;
-  display: flex;
+nav,
+header {
   align-items: center;
-  padding-bottom: 0.5rem;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+
+  width: 100%;
+  height: 11vh;
 }
 
-nav ul {
+nav > ul {
   display: flex;
-  padding-left: 0;
-  margin-bottom: 0;
   list-style: none;
 }
 
-nav ul li {
-  vertical-align: middle;
+nav > ul > li {
+  font-size: 1.3rem;
   text-align: center;
-  display: block;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 33vw;
+}
+
+nav a {
+  color: white;
+}
+
+h1 {
+  margin: 0px;
+}
+
+body {
+  margin: 0px;
+}
+
+.flex {
+  display: flex;
+}
+.sectLeft {
+  width: 30vw;
+}
+
+.sectLeft > h1 {
+  text-align: center;
+  padding-top: 1rem;
+  font-weight: 900;
+}
+
+.sectLeft > p {
+  text-align: center;
+}
+
+.sectRight {
+  width: 70vw;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
