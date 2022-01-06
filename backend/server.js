@@ -79,7 +79,7 @@ io.on("connection", async (socket) => {
     io.sockets.emit("new", message);
   });
 
-  socket.on("getUsername", (token) => {
+  socket.on("getUsername", async (token) => {
     var decoded;
     try {
       decoded = jwt.verify(token, process.env.TOKEN_KEY);
