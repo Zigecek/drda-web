@@ -9,7 +9,7 @@ socket.on("connect", () => {
         socket.emit("getMessages");
         el.innerHTML = `<p><span><a href="/ucet">${usrnm}</a></span> <span><a href="/odhlaseni">Odhlásit</a></span></p>`;
       } else {
-        document.cookie = null;
+        deleteAllCookies();
         el.innerHTML = `<a href="/prihlaseni">Přihlásit</a>`;
       }
     });
@@ -27,3 +27,12 @@ setInterval(
     )),
   999
 );
+
+const deleteAllCookies = () => {
+  const cookies = document.cookie.split(";");
+  for (const cookie of cookies) {
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+};
