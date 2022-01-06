@@ -1,5 +1,5 @@
 var username = null;
-var socket = io.connect("http://localhost");
+var socket = io.connect("https://cykablyat.cz");
 var el = document.getElementById("loginBtn");
 socket.on("connect", () => {
   if (document.cookie) {
