@@ -3,44 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="../global.css" />
-    <link rel="shortcut icon" href="https://cdna.artstation.com/p/assets/images/images/031/477/086/original/maynard-zervantian-aks74u.gif" type="image/x-icon">
+    <link rel="stylesheet" href="../login.css" />
+    <link
+      rel="shortcut icon"
+      href="https://cdna.artstation.com/p/assets/images/images/031/477/086/original/maynard-zervantian-aks74u.gif"
+      type="image/x-icon"
+    />
     <title>CS:GO - Kozohorský, Drda</title>
   </head>
   <body>
-    <nav>
-      <a href="/">
-        <h1>www.cykablyat.cz</h1>
-      </a>
+    <header>
+      <nav>
+        <h1 id="heading">
+          <a href="/">www.cykablyat.cz</a>
+        </h1>
 
-      <ul>
-        <li>
-          <a href="/">Hlavní</a>
-        </li>
-        <li>
-          <p id="datum">DATUM ATD</p>
-        </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-      </ul>
-    </nav>
-
-    <section>
-      <form action="/reg" method="post">
-        <label for="username">Uživatelské jméno: </label>
-        <input class="input" type="text" name="username" id="username" />
-
-        <label for="email">Email: </label>
-        <input class="input" type="email" name="email" id="email" />
-
-        <label for="password">Heslo: </label>
-        <input class="input" type="password" name="password" id="password" />
-
+        <ul>
+          <li>
+            <a href="/">Hlavní</a>
+          </li>
+          <li>
+            <p id="datum">0. 0. 0000 00:00:00</p>
+          </li>
+          <li id="loginBtn"></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="center">
+      <form class="center" action="/reg" method="post">
+        <input
+          class="input"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Uživatelské jméno"
+        />
+        <br />
+        <input
+          class="input"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+        />
+        <br />
+        <input
+          class="input"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Heslo"
+        />
+        <br />
+        <input
+          class="input"
+          type="password"
+          name="password-again"
+          id="password-again"
+          placeholder="Heslo znovu"
+        />
+        <br />
         <button class="button" type="submit">Registrovat</button>
       </form>
       <p>
         Už máš účet? <span><a href="/prihlaseni">Přihlásit se</a></span>
       </p>
     </section>
+    <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
+    <script src="../global.js"></script>
   </body>
 </html>

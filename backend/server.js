@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const socketIo = require("socket.io");
+const nodemailer = require("nodemailer");
 
 const User = require("./models/User");
 const Message = require("./models/Message");
@@ -24,12 +25,33 @@ const unless = function (middleware, ...paths) {
 
 const app = express();
 
+const httpServer = createServer(app);
+httpServer.listen(port);
+
 app.use(serveStatic("./frontend/"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const httpServer = createServer(app);
-httpServer.listen(port);
+let transporter = nodemailer.createTransport({
+  host: "smtp.seznam.cz",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SEZNAM_EMAIL,
+    pass: process.env.SEZNAM_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
+
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
+});
 
 const io = socketIo(httpServer, {
   cors: {
@@ -43,19 +65,21 @@ const io = socketIo(httpServer, {
 });
 
 io.on("connection", async (socket) => {
-  var messages = await Message.find({});
-  if (messages.length > 0) {
-    messages.sort((a, b) => {
-      if (a.posted > b.posted) {
-        return 1;
-      } else if (a == b) {
-        return 0;
-      } else {
-        return -1;
-      }
-    });
-    socket.emit("load", messages);
-  }
+  socket.on("getMessages", async () => {
+    var messages = await Message.find({});
+    if (messages.length > 0) {
+      messages.sort((a, b) => {
+        if (a.posted > b.posted) {
+          return 1;
+        } else if (a == b) {
+          return 0;
+        } else {
+          return -1;
+        }
+      });
+      socket.emit("messages", messages);
+    }
+  });
 
   socket.on("send", async (msg) => {
     var decoded;
@@ -79,68 +103,113 @@ io.on("connection", async (socket) => {
     io.sockets.emit("new", message);
   });
 
-  socket.on("getUsername", async (token) => {
+  socket.on("verify", async (token) => {
     var decoded;
     try {
       decoded = jwt.verify(token, process.env.TOKEN_KEY);
-    } catch (error) {}
+    } catch (error) {
+      return socket.emit("tokenVer", false);
+    }
 
     const user = await User.findOne({ email: decoded.email });
-    if (!user) return;
+    if (!user) return socket.emit("tokenVer", false);
 
-    socket.emit("username", user.username);
+    socket.emit("tokenVer", user.username);
   });
 });
 
 app.post("/reg", async (req, res) => {
-  // Our register logic starts here
   try {
     const { username, email, password } = req.body;
 
-    // Validate user input
     if (!(email && password && username)) {
-      res.status(400).send("All input is required");
+      res.status(400).send("Musíte vyplnit všechny políčka");
     }
 
-    // check if user already exist
-    // Validate if user exist in our database
     const oldUser = await User.findOne({ email });
 
     if (oldUser) {
-      return res.status(409).send("User Already Exist. Please Login");
+      return res.status(409).send("Uživatel už existuje. Přihlaš se.");
     }
 
-    //Encrypt user password
     encryptedPassword = await bcrypt.hash(password, 10);
 
-    const token = jwt.sign({ username, email }, process.env.TOKEN_KEY, {
-      expiresIn: "24h",
-    });
-    // Create user in our database
     const color = "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+    const token = jwt.sign(
+      {
+        username,
+        email: email.toLowerCase(),
+      },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
     const user = await User.create({
       _id: new require("mongoose").Types.ObjectId(),
-      username,
-      email: email.toLowerCase(), // sanitize: convert email to lowercase
+      email: email.toLowerCase(),
       password: encryptedPassword,
+      registered: Date.now(),
+      verified: {
+        is: false,
+        time: null,
+      },
+      username,
       token,
       color,
     });
+    const verToken = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.VERTOKEN_KEY,
+      {
+        expiresIn: "2h",
+      }
+    );
 
-    // save user token
-    user.token = token;
-    res.cookie("access_token", token, {
-      httpOnly: false,
-      secure: true,
-      sameSite: "none",
-    });
+    transporter.sendMail(
+      {
+        from: "registrace@cykablyat.cz",
+        to: [email.toLowerCase()],
+        subject: "Registrace",
+        html: `<h1>Ověření emailu</h1><a href="${
+          req.hostname == "localhost" ? "http" : "https"
+        }://${
+          req.hostname
+        }/ver?token=${verToken}">Ověřit</a><p>Pokud jste se neregistrovali na www.cykablyat.cz, na nic neklikejte.</p>`,
+      },
+      (err, info) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(info);
+      }
+    );
 
-    // return new user
-    return res.redirect("/");
+    return res
+      .status(200)
+      .send(
+        'Ověř emailovou adresu kliknutím na odkaz v právě zaslaném emailu. \nEmail se může nacházet ve složce "Spam"'
+      );
   } catch (err) {
     console.log(err);
   }
-  // Our register logic ends here
+});
+
+app.get("/ver", async (req, res) => {
+  var verToken = req.query.token;
+  try {
+    const decoded = jwt.verify(verToken, process.env.VERTOKEN_KEY);
+    const user = await User.findOneAndUpdate(
+      { _id: decoded.id },
+      { verified: { is: true, when: Date.now() } }
+    );
+    return res.status(200).redirect("/prihlaseni?overeno");
+  } catch (err) {
+    return res.status(401).send("Invalid Token");
+  }
 });
 
 app.post("/log", async (req, res) => {
