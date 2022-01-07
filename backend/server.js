@@ -217,10 +217,14 @@ app.post("/log", async (req, res) => {
     const { email, password } = req.body;
 
     if (!(email && password)) {
-      res.status(400).send("All input is required");
+      res.status(400).send("Vyplňte všechna políčka.");
     }
 
     const user = await User.findOne({ email });
+
+    if (!user.verified.is) {
+      res.status(410).send("Email ještě nebyl ověřen.");
+    }
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = jwt.sign(
