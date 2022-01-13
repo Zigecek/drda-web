@@ -206,7 +206,7 @@ app.get("/ver", async (req, res) => {
       { _id: decoded.id },
       { verified: { is: true, when: Date.now() } }
     );
-    return res.status(200).redirect("/prihlaseni?overeno");
+    return res.status(200).redirect("/prihlaseni?overeno=ano");
   } catch (err) {
     return res.status(401).send("Invalid Token");
   }
