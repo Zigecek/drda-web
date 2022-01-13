@@ -1,3 +1,13 @@
+function time() {
+  document.getElementById("datum").innerText = new Date().toLocaleString(
+    "cs-CZ",
+    { timeZone: "CET" }
+  );
+}
+
+time();
+setInterval(time(), 999);
+
 var username = null;
 var socket = io.connect("https://cykablyat.cz");
 var el = document.getElementById("loginBtn");
@@ -18,15 +28,6 @@ socket.on("connect", () => {
     el.innerHTML = `<a href="/prihlaseni">Přihlásit</a>`;
   }
 });
-
-setInterval(
-  () =>
-    (document.getElementById("datum").innerText = new Date().toLocaleString(
-      "cs-CZ",
-      { timeZone: "CET" }
-    )),
-  999
-);
 
 const deleteAllCookies = () => {
   const cookies = document.cookie.split(";");

@@ -19,8 +19,6 @@ nav {
   padding-left: 2rem;
 }
 
-
-
 nav * {
   color: white;
 }
@@ -47,6 +45,15 @@ nav > ul > li * {
   font-size: 1.2rem;
 }
 
+#hlavni {
+  background-color: #0d6efd;
+}
+#datumLi {
+  background-color: aqua;
+}
+#loginBtn {
+  background-color: blueviolet;
+}
 
 h1 {
   margin: 0px;

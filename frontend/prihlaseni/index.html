@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="../global.css" />
+    <link rel="stylesheet" href="../login.css" />
     <link
       rel="shortcut icon"
       href="https://cdna.artstation.com/p/assets/images/images/031/477/086/original/maynard-zervantian-aks74u.gif"
@@ -18,10 +19,10 @@
         </h1>
 
         <ul>
-          <li>
+          <li id="hlavni">
             <a href="/">Hlavní</a>
           </li>
-          <li>
+          <li id="datumLi">
             <p id="datum">0. 0. 0000 00:00:00</p>
           </li>
           <li id="loginBtn"></li>
@@ -29,8 +30,8 @@
       </nav>
     </header>
 
-    <section>
-      <form action="/log" method="post">
+    <section class="center">
+      <form class="center" action="/log" method="post">
         <input
           class="input"
           type="email"
