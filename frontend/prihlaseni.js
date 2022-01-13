@@ -7,7 +7,7 @@ location.search
   });
 console.log(queryDict);
 if (queryDict.overeno == "ano") {
-  var el = document.getElementById("SS");
+  var ssssss = document.getElementById("SS");
   var newline = `<h2 style="color: green;">Tvůj účet byl ověřen, můžeš se přihlásit!</h2>\n`;
-  el.innerHTML = newline + el.innerHTML;
+  ssssss.innerHTML = newline + ssssss.innerHTML;
 }
