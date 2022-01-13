@@ -6,7 +6,7 @@ function time() {
 }
 
 time();
-setInterval(time(), 999);
+setInterval(time, 999);
 
 var username = null;
 var socket = io.connect("https://cykablyat.cz");
