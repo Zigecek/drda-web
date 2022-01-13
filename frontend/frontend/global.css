@@ -1,0 +1,134 @@
+header {
+  display: block;
+  height: 7rem;
+  background-color: black;
+}
+
+nav {
+  height: 7rem;
+  margin-bottom: 5rem;
+}
+
+#heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  height: 1.8rem;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  padding-left: 2rem;
+}
+
+nav * {
+  color: white;
+}
+
+nav > ul {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+  list-style-type: none;
+  display: flex;
+  height: 2rem;
+}
+
+nav > ul > li {
+  width: 33vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+nav > ul > li * {
+  padding: auto;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
+#hlavni {
+  background-color: #0d6efd;
+}
+#datumLi {
+  background-color: aqua;
+}
+#loginBtn {
+  background-color: blueviolet;
+}
+
+h1 {
+  margin: 0px;
+}
+
+body {
+  margin: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(116, 116, 116);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(73, 73, 73);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(63, 63, 63);
+}
+
+.button {
+  width: 5rem;
+  height: 1.7rem;
+  cursor: pointer;
+  outline: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: auto;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+.button:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.input {
+  margin: 0.2rem;
+  width: 12rem;
+  height: 1.7rem;
+  padding: auto;
+  font-size: 0.9rem;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+}
