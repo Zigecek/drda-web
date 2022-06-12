@@ -5,6 +5,7 @@
   height: 30rem;
   border: 1px solid #ced4da;
   border-radius: 1rem;
+  margin: 50px;
 }
 #sendForm {
   width: 20em;
@@ -29,32 +30,41 @@
   margin-right: auto;
 }
 
-.sectLeft {
-  width: 30vw;
-}
-
-.sectLeft > h1 {
-  text-align: center;
-  padding-top: 1rem;
-  font-weight: 900;
-}
-
-.sectLeft > p {
+section > p,
+section > h1 {
   text-align: center;
   padding: 0.8rem;
 }
 
-.sectRight {
-  width: 70vw;
-  align-items: center;
-}
-
 .videoPicture {
-  padding: 1.2rem;
+  margin: 5vw;
+  width: calc(40vw - 7px);
 }
 
-#table {
-  display: block;
-  width: auto;
-  margin: auto;
+#youtube {
+  height: 25vw;
+}
+
+.table {
+  width: 80vw;
+  margin: 10vw;
+}
+
+@media (max-width: 800px) {
+  .videoPicture {
+    margin: 5vw;
+    width: calc(90vw - 7px);
+  }
+  #youtube {
+    height: 56.25vw;
+  }
+}
+
+table.table > tbody > tr > td > img {
+  width: 100%;
+  height: 100%;
+}
+
+table.table > tbody > tr > th {
+  font-size: x-large;
 }

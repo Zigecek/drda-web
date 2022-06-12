@@ -1,13 +1,12 @@
 header {
   display: block;
-  height: 7rem;
   background-color: black;
 }
-
+/*
 nav {
   height: 7rem;
-  margin-bottom: 5rem;
-}
+  padding-bottom: 6rem;
+}*/
 
 #heading {
   font-size: 1.5rem;
@@ -26,7 +25,6 @@ nav * {
 nav > ul {
   margin: 0px;
   padding: 0px;
-  display: inline;
   list-style-type: none;
   display: flex;
   height: 2rem;
@@ -45,14 +43,30 @@ nav > ul > li * {
   font-size: 1.2rem;
 }
 
+@media (max-width: 800px) {
+  nav > ul {
+    flex-direction: column;
+    min-height: 8rem;
+    flex-shrink: 0;
+  }
+  nav > ul > li {
+    width: 100vw;
+    min-height: 2rem;
+    flex-shrink: 0;
+  }
+}
+
 #hlavni {
   background-color: #0d6efd;
 }
 #datumLi {
   background-color: aqua;
 }
-#datum {
-  color: red;
+#stopkyLi {
+  background-color: rgb(146, 204, 146);
+}
+#cas2 {
+  color: rgb(37, 21, 21);
 }
 #loginBtn {
   background-color: blueviolet;
@@ -68,6 +82,7 @@ body {
 
 .flex {
   display: flex;
+  flex-direction: row;
 }
 
 ::-webkit-scrollbar {
