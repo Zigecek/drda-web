@@ -15,6 +15,7 @@
 
   <body>
     <section id="fullScreenAnimace"></section>
+
     <header>
       <nav>
         <h1 id="heading">
@@ -37,50 +38,53 @@
         </ul>
       </nav>
     </header>
-    <section class="center">
-      <form class="center" action="/reg" method="post">
-        <input
-          class="input"
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Uživatelské jméno"
-          required
-        />
-        <br />
-        <input
-          class="input"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          required
-        />
-        <br />
-        <input
-          class="input"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Heslo"
-          required
-        />
-        <br />
-        <input
-          class="input"
-          type="password"
-          name="password-again"
-          id="password-again"
-          placeholder="Heslo znovu"
-          required
-        />
-        <br />
-        <button class="button" type="submit">Registrovat</button>
-      </form>
-      <p>
-        Už máš účet? <span><a href="/prihlaseni">Přihlásit se</a></span>
-      </p>
-    </section>
+
+    <main>
+      <section class="center">
+        <form class="center" action="/reg" method="post">
+          <input
+            class="input"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Uživatelské jméno"
+            required
+          />
+          <br />
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <br />
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Heslo"
+            required
+          />
+          <br />
+          <input
+            class="input"
+            type="password"
+            name="password-again"
+            id="password-again"
+            placeholder="Heslo znovu"
+            required
+          />
+          <br />
+          <button class="button" type="submit">Registrovat</button>
+        </form>
+        <p>
+          Už máš účet? <span><a href="/prihlaseni">Přihlásit se</a></span>
+        </p>
+      </section>
+    </main>
     <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
     <script src="../global.js"></script>
   </body>

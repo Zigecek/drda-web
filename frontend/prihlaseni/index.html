@@ -15,6 +15,7 @@
 
   <body>
     <section id="fullScreenAnimace"></section>
+
     <header>
       <nav>
         <h1 id="heading">
@@ -37,30 +38,33 @@
         </ul>
       </nav>
     </header>
-    <section id="SS" class="center">
-      <form class="center" action="/log" method="post">
-        <input
-          class="input"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          class="input"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Heslo"
-          required
-        />
-        <button class="button" type="submit">Přihlásit</button>
-      </form>
-      <p>
-        Nemáš účet? <span><a href="/registrace">Registrovat</a></span>
-      </p>
-    </section>
+
+    <main>
+      <section id="SS" class="center">
+        <form class="center" action="/log" method="post">
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Heslo"
+            required
+          />
+          <button class="button" type="submit">Přihlásit</button>
+        </form>
+        <p>
+          Nemáš účet? <span><a href="/registrace">Registrovat</a></span>
+        </p>
+      </section>
+    </main>
     <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
     <script src="../global.js"></script>
     <script src="../prihlaseni.js"></script>
