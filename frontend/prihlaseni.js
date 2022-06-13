@@ -1,3 +1,4 @@
+// NEHODNOTIT //
 var queryDict = {};
 location.search
   .substr(1)
@@ -11,3 +12,5 @@ if (queryDict.overeno == "ano") {
   var newline = `<h2 style="color: green;">Tvůj účet byl ověřen, můžeš se přihlásit!</h2>\n`;
   ssssss.innerHTML = newline + ssssss.innerHTML;
 }
+//\ NEHODNOTIT //
+// prosím nehodnotit, udělal jsem funkční přihlašování, to nebylo v zadání

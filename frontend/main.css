@@ -6,6 +6,7 @@
   border: 1px solid #ced4da;
   border-radius: 1rem;
   margin: 50px;
+  background-color: white;
 }
 #sendForm {
   width: 20em;
@@ -67,4 +68,8 @@ table.table > tbody > tr > td > img {
 
 table.table > tbody > tr > th {
   font-size: x-large;
+}
+
+#nikdonic {
+  margin: 5px;
 }

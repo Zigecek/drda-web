@@ -1,12 +1,11 @@
+main {
+  background-color: rgb(255, 251, 242);
+}
+
 header {
   display: block;
   background-color: black;
 }
-/*
-nav {
-  height: 7rem;
-  padding-bottom: 6rem;
-}*/
 
 #heading {
   font-size: 1.5rem;
@@ -149,4 +148,15 @@ body {
   margin-right: auto;
   align-items: center;
   text-align: center;
+}
+
+#fullScreenAnimace {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  height: 0;
+}
+.krizek {
+  width: 30px;
+  height: 30px;
 }

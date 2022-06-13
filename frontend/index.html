@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <section id="fullScreenAnimace"></section>
     <header>
       <nav>
         <h1 id="heading">
@@ -29,7 +30,9 @@
           <li id="stopkyLi">
             <p id="cas">00:00:00</p>
           </li>
-          <li id="loginBtn"></li>
+          <li id="loginBtn">
+            <a href="/prihlaseni">Přihlásit</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -49,7 +52,7 @@
           kteří vám hru jen a jen kazí, ať už je to nedobrým herním stylem nebo
           úmyslným kažením hry. Zakladními "parametry" hráce jsou poté takové
           (musíme brát ohled na nově příchozí hráče, kteří se tyto "parametry"
-          teprve učí) :
+          teprve učí)
         </p>
         <ul>
           <li>
@@ -74,9 +77,10 @@
         class="videoPicture"
       ></iframe>
       <img
-        src="https://cdn.akamai.steamstatic.com/apps/csgo/images/blog/riptide_blog_2.png"
+        src="https://www.esports.net/wp-content/uploads/2022/01/Operation-Riptide-CSGO.jpg"
         alt="www.cykablyat.cz"
         class="videoPicture"
+        id="prezentaceObrazek"
       />
 
       <table border="1" cellspacing="0" class="table">
@@ -219,6 +223,9 @@
           </button>
         </form>
       </section>
+
+      <section id="generovanaTabulka"></section>
+      
     </main>
     <script src="https://cdn.socket.io/4.3.1/socket.io.min.js"></script>
     <script src="global.js"></script>

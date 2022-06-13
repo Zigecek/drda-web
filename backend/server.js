@@ -221,6 +221,8 @@ app.post("/log", async (req, res) => {
     }
 
     const user = await User.findOne({ email });
+ 
+    if (!user) return res.status(404).send("Uživatel nenalezen.");
 
     if (!user.verified.is) {
       res.status(410).send("Email ještě nebyl ověřen.");
