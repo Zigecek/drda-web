@@ -1,4 +1,4 @@
-main {
+body {
   background-color: rgb(255, 251, 242);
 }
 
@@ -157,6 +157,7 @@ body {
   height: 0;
 }
 .krizek {
+  position: absolute;
   width: 30px;
   height: 30px;
 }

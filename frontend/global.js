@@ -31,8 +31,6 @@ const deleteAllCookies = () => {
 //\ NEHODNOTIT //
 // prosím nehodnotit, udělal jsem funkční přihlašování, to nebylo v zadání
 
-
-
 // čas - stopky, aktuální
 var loadtime = Date.now();
 const cas = () => {
@@ -60,6 +58,7 @@ setInterval(() => {
   x.id = "x" + cisloKrizku;
   x.src = "/krizek.png";
   x.className = "krizek";
+  x.onmousedown = ak47;
   y.appendChild(x);
   parent.appendChild(y);
 
@@ -75,7 +74,13 @@ setInterval(() => {
   });
 
   cisloKrizku++;
-}, 4000);
+}, 3000);
+
+var audio = new Audio("/ak47.mp3");
+
+function ak47() {
+  audio.play();
+}
 
 // z internetu
 function getRandomInt(min, max) {
