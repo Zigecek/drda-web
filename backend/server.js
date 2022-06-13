@@ -13,7 +13,7 @@ const nodemailer = require("nodemailer");
 
 const User = require("./models/User");
 const Message = require("./models/Message");
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3645;
 console.log("PORT: " + port);
 
 const unless = function (middleware, ...paths) {
