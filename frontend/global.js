@@ -13,10 +13,10 @@ socket.on("connect", () => {
       }
     });
     socket.emit("verify", document.cookie.slice(13));
-    socket.emit("getMessages");
   } else {
     el.innerHTML = `<a href="/prihlaseni">Přihlásit</a>`;
   }
+  socket.emit("getMessages");
 });
 
 const deleteAllCookies = () => {
